@@ -252,7 +252,152 @@ function loadingAnimation() {
   });
 }
 
+function page7ImageAnimation() {
+  var elemC = document.querySelector("#elem-container");
+  var fixed = document.querySelector("#fixed-image");
+  var hideTimeout;
+
+  elemC.addEventListener("mouseenter", function () {
+    clearTimeout(hideTimeout); // Clear any existing timeout
+    fixed.style.display = "block";
+  });
+
+  elemC.addEventListener("mouseleave", function () {
+    // Delay hiding the image to prevent blinking
+    hideTimeout = setTimeout(function () {
+      fixed.style.display = "none";
+    }, 10); // Adjust the delay time as needed (in milliseconds)
+  });
+
+  var elems = document.querySelectorAll(".elem");
+  elems.forEach(function (e) {
+    e.addEventListener("mouseenter", function () {
+      var image = e.getAttribute("data-image");
+      fixed.style.backgroundImage = `url(${image})`;
+    });
+
+    e.addEventListener("mousemove", function (dets) {
+      var rotate = 0;
+      var diffrot = 0;
+      var diff = dets.clientY - e.getBoundingClientRect().top;
+      diffrot = dets.clientX - rotate;
+      rotate = dets.clientX;
+
+      gsap.to(fixed, {
+        opacity: 1,
+        ease: "power3.out",
+        top: dets.clientY - 50 + "px",
+        left: dets.clientX - 50 + "px",
+      });
+    });
+
+    e.addEventListener("mouseleave", function (dets) {
+      gsap.to(fixed, {
+        // opacity: 0,
+        ease: "power3.out",
+        duration: 0.5,
+      });
+    });
+  });
+}
+
+function allTextAnimation() {
+  gsap.from(".page2-left, .right-elem", {
+    y: 320,
+    stagger: 0.2,
+    duration: 0.4,
+    scrollTrigger: {
+      trigger: ".page2",
+      scroller: ".main",
+      // markers: true,
+      start: "top 76%",
+      end: "top 46%",
+      scrub: 3,
+    },
+  });
+  gsap.from(".page4-box", {
+    y: 320,
+    stagger: 0.2,
+    duration: 0.4,
+    scrollTrigger: {
+      trigger: ".right-bottom p",
+      scroller: ".main",
+      // markers: true,
+      start: "top 46%",
+      end: "top 46%",
+      scrub: 3,
+    },
+  });
+  gsap.from(".page4-part3 ", {
+    y: 320,
+    stagger: 0.2,
+    duration: 0.4,
+    scrollTrigger: {
+      trigger: ".lstbox",
+      scroller: ".main",
+      // markers: true,
+      start: "top 86%",
+      end: "top 46%",
+      scrub: 3,
+    },
+  });
+  gsap.from(".page5b-t ", {
+    y: 320,
+    stagger: 0.2,
+    duration: 0.4,
+    scrollTrigger: {
+      trigger: ".lsteml",
+      scroller: ".main",
+      // markers: true,
+      start: "top 56%",
+      end: "top 46%",
+      scrub: 3,
+    },
+  });
+  gsap.from(".page5b-b", {
+    y: 120,
+    stagger: 0.2,
+    duration: 0.4,
+    scrollTrigger: {
+      trigger: ".page5b-t",
+      scroller: ".main",
+      // markers: true,
+      start: "top 56%",
+      end: "top 46%",
+      scrub: 3,
+    },
+  });
+  gsap.from(".page7-top", {
+    y: 320,
+    stagger: 0.2,
+    duration: 0.4,
+    scrollTrigger: {
+      trigger: ".page7-div p",
+      scroller: ".main",
+      // markers: true,
+      start: "top 56%",
+      end: "top 46%",
+      scrub: 3,
+    },
+  });
+  gsap.from(".pg7top5", {
+    y: 320,
+    stagger: 0.2,
+    duration: 0.4,
+    scrollTrigger: {
+      trigger: ".page7-div .antext",
+      scroller: ".main",
+      // markers: true,
+      start: "top 56%",
+      end: "top 46%",
+      scrub: 3,
+    },
+  });
+}
+
 locomotiveAnimation();
+
+allTextAnimation();
 
 loadingAnimation();
 
@@ -265,5 +410,7 @@ page3VideoAnimation();
 pageColorAnimation();
 
 page4VideoAnimation();
+
+page7ImageAnimation();
 
 page6Animations();

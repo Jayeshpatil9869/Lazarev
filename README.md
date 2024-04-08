@@ -27,3 +27,7 @@ This repository contains a clone of the Lazarev Agency website, showcasing vario
 - Scroll Trigger: [Link](https://greensock.com/docs/v3/Plugins/ScrollTrigger)
 
 Feel free to explore the code and customize it according to your needs. Happy coding! 😊🚀
+
+
+Absolutely, it's important to clarify that the repository is solely for educational purposes and to enhance web development skills. It's not meant to be associated with or endorsed by Lazarev Agency, and it serves as a learning tool for individuals interested in web development and design.
+

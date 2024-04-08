@@ -15,10 +15,10 @@ This repository contains a clone of the Lazarev Agency website, showcasing vario
 - **GSAP**: Creating advanced animations and transitions.
 - **Locomotive Scroll**: Enhancing scrolling behavior and animations.
 - **Scroll Trigger**: Triggering animations based on scroll position.
-
 ### Getting Started
-1. Clone the repository: `git clone https://github.com/your-username/lazarev-agency-clone.git`
-2. Open the `index.html` file in your browser to view the website.
+
+• Clone the repository: `https://jayeshpatil9869.github.io/Lazarev/`
+
 
 ### Credits
 - Lazarev Agency (Original Website): [Link](https://www.lazarev.agency/)

@@ -395,6 +395,68 @@ function allTextAnimation() {
   });
 }
 
+function cursor() {
+  var cursor = document.querySelector(".cursor");
+  var cursorinner = document.querySelector(".cursor2");
+  var a = document.querySelectorAll("a");
+  var hamburger = document.getElementById("menuToggle"); // Changed to menuToggle
+  var menuIcon = document.querySelector(".menu-bg");
+
+  document.addEventListener("mousemove", function (e) {
+    cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
+    cursorinner.style.left = e.clientX + "px";
+    cursorinner.style.top = e.clientY + "px";
+  });
+
+  document.addEventListener("mousedown", function () {
+    cursor.classList.add("click");
+    cursorinner.classList.add("cursorinnerhover");
+  });
+
+  document.addEventListener("mouseup", function () {
+    cursor.classList.remove("click");
+    cursorinner.classList.remove("cursorinnerhover");
+  });
+
+  a.forEach((item) => {
+    item.addEventListener("mouseover", () => {
+      cursor.classList.add("hover");
+    });
+    item.addEventListener("mouseleave", () => {
+      cursor.classList.remove("hover");
+    });
+  });
+
+  // Add event listener to the hamburger icon for hover effect
+  hamburger.addEventListener("mouseover", function () {
+    cursor.style.width = "50px";
+    cursor.style.height = "50px";
+    cursorinner.style.width = "30px";
+    cursorinner.style.height = "30px";
+  });
+
+  // Reset cursor size when mouse leaves the hamburger icon
+  hamburger.addEventListener("mouseleave", function () {
+    cursor.style.width = "30px";
+    cursor.style.height = "30px";
+    cursorinner.style.width = "15px";
+    cursorinner.style.height = "15px";
+  });
+
+  // Add event listener to the menu icon for hover effect
+  menuIcon.addEventListener("mouseover", function () {
+    cursorinner.style.width = "50px";
+    cursorinner.style.height = "50px";
+  });
+
+  // Reset cursor size when mouse leaves the menu icon
+  menuIcon.addEventListener("mouseleave", function () {
+    cursorinner.style.width = "15px";
+    cursorinner.style.height = "15px";
+  });
+}
+
+
 locomotiveAnimation();
 
 allTextAnimation();
@@ -414,3 +476,5 @@ page4VideoAnimation();
 page7ImageAnimation();
 
 page6Animations();
+
+cursor();
